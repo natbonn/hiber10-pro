@@ -52,10 +52,6 @@ public class Teacher {
         course.setTeacher(null);
     }
 
-
-
-
-
     @Override
     public String toString() {
         return String.format("%d %s %s", id, firstname, lastname);
