@@ -12,9 +12,9 @@
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />
             <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver" />
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/hiber10-dev?sslMode=preferred
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/hiber10-pro?sslMode=preferred
                                                               &amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true" />
-            <property name="hibernate.connection.username" value="user10" />
+            <property name="hibernate.connection.username" value="user_hiber10" />
             <property name="hibernate.connection.password" value="C0d1ngF@" />
             <property name="hibernate.hbm2ddl.auto" value="update"/>
         </properties>

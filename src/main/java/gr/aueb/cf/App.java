@@ -1,4 +1,4 @@
-package org.example;
+package gr.aueb.cf;
 
 /**
  * Hello world!
