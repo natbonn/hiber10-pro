@@ -19,12 +19,18 @@ public class Main {
         try {
             tx.begin();
 
+            Course java = em.find(Course.class, 1L);
             Teacher alice = em.find(Teacher.class, 1L);
-            Course java = new Course("Java");
-            alice.addCourse(java);
-            alice.setLastname("Wonderland");
 
-            em.persist(java);
+            alice.removeCourse(java);
+            em.remove(java);
+
+//            Teacher alice = em.find(Teacher.class, 1L);
+//            Course java = new Course("Java");
+//            alice.addCourse(java);
+//            alice.setLastname("Wonderland");
+
+//            em.persist(java);
 //            em.merge(alice);    dirty checking
 
 //            Teacher alice = new Teacher("Alice", "Smith");
