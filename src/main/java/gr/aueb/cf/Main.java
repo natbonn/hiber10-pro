@@ -37,12 +37,45 @@ public class Main {
 //            kapetisCourses.forEach(System.out::println);
 
             // Select courses of Καπέτης SQL Injection free
-            String query4 = "SELECT c FROM Course c WHERE c.teacher.lastname = :lastname";
-            List<Course> courses4 = em
-                    .createQuery(query4, Course.class)
-                    .setParameter("lastname", "Γιαννούτσου")
-                    .getResultList();
-            courses4.forEach(System.out::println);
+//            String query4 = "SELECT c FROM Course c WHERE c.teacher.lastname = :lastname";
+//            List<Course> courses4 = em
+//                    .createQuery(query4, Course.class)
+//                    .setParameter("lastname", "Γιαννούτσου")
+//                    .getResultList();
+//            courses4.forEach(System.out::println);
+
+            // Select teachers that teach Java
+//            String query5 = "SELECT t FROM Teacher t JOIN t.courses c WHERE c.title = :title";
+//            List<Teacher> teachers5 = em.createQuery(query5, Teacher.class)
+//                    .setParameter("title", "Java")
+//                    .getResultList();
+//            teachers5.forEach(System.out::println);
+
+            // Select teacher id and the count of his courses
+//            String query6 = "SELECT t.id, t.lastname, COUNT(c) FROM Teacher t LEFT JOIN t.courses c GROUP BY t.id";
+//            List<Object[]> teachers6 = em.createQuery(query6, Object[].class).getResultList();
+//
+//            for (Object[] teacher : teachers6) {
+//                Long id = (Long) teacher[0];
+//                String lastname = (String) teacher[1];
+//                Long count = (Long) teacher[2];
+//                System.out.println(id + " " + lastname + " " + count);
+//            }
+
+            // Select teachers that do not teach any course
+            String query7 = "SELECT t FROM Teacher t LEFT JOIN t.courses c WHERE c.id IS NULL";
+            List<Teacher> teachers7 = em.createQuery(query7, Teacher.class).getResultList();
+            teachers7.forEach(System.out::println);
+
+            // Select teachers and their courses
+            // Eager fetch
+            String query8 = "SELECT t, c FROM Teacher t LEFT JOIN FETCH t.courses c";
+
+            // Native Query
+            String query9 = "SELECT * FROM teachers";
+            var teachers9 = em.createNativeQuery(query9, Teacher.class).getResultList();
+            teachers9.forEach(System.out::println);
+
 
             tx.commit();
 
